@@ -1,0 +1,2 @@
+TEST/ filter=lfs diff=lfs merge=lfs -text
+module_drivers/ filter=lfs diff=lfs merge=lfs -text
