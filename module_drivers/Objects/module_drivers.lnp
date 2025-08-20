@@ -50,6 +50,7 @@
 ".\objects\bh1750.o"
 ".\objects\spi_1.o"
 ".\objects\bmp280.o"
+".\objects\usart_1.o"
 ".\objects\main.o"
 ".\objects\stm32f4xx_it.o"
 ".\objects\delay.o"

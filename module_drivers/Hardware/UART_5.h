@@ -8,7 +8,6 @@
 extern volatile char uart5_rx_buf; // 接收缓存
 extern volatile uint8_t uart5_rx_flag; // 接收完成标志
 
-void SystemClock_Init(void);
 void UART5_Init(void);
 void UART5_SendChar(char c);
 void UART5_SendString(char *str);

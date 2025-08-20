@@ -40,6 +40,7 @@
 .\objects\main.o: .\Hardware\UART_5.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\main.o: .\Hardware\USART_1.h
 .\objects\main.o: .\Hardware\sgp30.h
 .\objects\main.o: .\Hardware\BH1750.h
 .\objects\main.o: .\Hardware\BMP280.h

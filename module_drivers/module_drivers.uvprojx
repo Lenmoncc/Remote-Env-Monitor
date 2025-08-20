@@ -919,6 +919,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\BMP280.h</FilePath>
             </File>
+            <File>
+              <FileName>USART_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\USART_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>USART_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\USART_1.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

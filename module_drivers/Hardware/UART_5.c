@@ -1,22 +1,6 @@
 #include "UART_5.h"
 
-void SystemClock_Init(void) {    
-	RCC_HSEConfig(RCC_HSE_ON);  // 使能外部高速时钟HSE（8MHz）    
-	while (RCC_GetFlagStatus(RCC_FLAG_HSERDY) == RESET);  
-	    
-//	RCC_HSICmd(ENABLE);                   // 使能内部高速时钟（16MHz）
-//    while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET); // 等待HSI稳定
-    
-	RCC_PLLConfig(RCC_PLLSource_HSE, 8, 366, 2, 7);    
-//	RCC_PLLConfig(RCC_PLLSource_HSI, 16, 168, 2, 7);
-	RCC_PLLCmd(ENABLE);    
-	while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET);  
-        
-	RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);  // 系统时钟=168MHz    
-	RCC_HCLKConfig(RCC_SYSCLK_Div1);           // AHB时钟=168MHz    
-	RCC_PCLK1Config(RCC_HCLK_Div4);            // APB1时钟=42MHz（≤42MHz，符合规范）    
-	RCC_PCLK2Config(RCC_HCLK_Div2);            // APB2时钟=84MHz
-}
+
 
 void UART5_Init()
 {
