@@ -1,28 +1,53 @@
 #include "stm32f4xx.h"
 #include "ws2812.h"
 #include "Delay.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+// 任务堆栈大小
+#define LED_TASK_STACK_SIZE 512
+// 任务优先级
+#define LED_TASK_PRIORITY 0
+
+// LED任务函数声明
+void vLEDTask(void *pvParameters);
 
 
 int main(void)
 {
-	SystemInit();
+	
 	Delay_Init();
 	WS2812_Init();
 	WS2812_Update();
-	Delay_ms(500);
-    
-	uint16_t offset = 0;
-    while(1) {
-//		 leds[0] = (LED_Color){0, 255, 0}; // GRB˳����ɫ=0, ��ɫ=255, ��ɫ=0 �� ��ɫ
-//        WS2812_Update();
-//        Delay_ms(500);
-        RainbowEffect(offset++);
-        WS2812_Update();
-        Delay_ms(1000);
+	
+    // 创建LED任务
+    xTaskCreate(vLEDTask, "LED Task", LED_TASK_STACK_SIZE, 
+                NULL, LED_TASK_PRIORITY, NULL);
+	
+    // 启动任务调度器
+    vTaskStartScheduler();
+
+
+    while(1) 
+    {
     }
+
 }
 
-
+// LED任务实现
+void vLEDTask(void *pvParameters)
+{
+    uint16_t offset = 0;
+    
+    // 任务循环
+    for(;;)
+    {
+        RainbowEffect(offset++);
+        WS2812_Update();
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
 
 
 

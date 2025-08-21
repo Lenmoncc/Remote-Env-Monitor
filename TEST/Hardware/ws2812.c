@@ -63,6 +63,25 @@ void WS2812_Init()
 	TIM_DMACmd(TIM1, TIM_DMA_Update, ENABLE);
 	DMA_Cmd(DMA2_Stream5, ENABLE);
 	
+	// 配置DMA中断优先级（高于FreeRTOS内核中断优先级）
+	NVIC_InitTypeDef NVIC_InitStruct;
+	NVIC_InitStruct.NVIC_IRQChannel = DMA2_Stream5_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 6;  // 高优先级
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStruct);
+	
+	DMA_ITConfig(DMA2_Stream5, DMA_IT_TC, ENABLE);
+}
+
+// DMA中断处理函数
+void DMA2_Stream5_IRQHandler(void)
+{
+    if(DMA_GetITStatus(DMA2_Stream5, DMA_IT_TCIF5))
+    {
+        DMA_ClearITPendingBit(DMA2_Stream5, DMA_IT_TCIF5);
+ 
+    }
 }
 
 void WS2812_Encode(uint8_t r, uint8_t g, uint8_t b) 
@@ -77,6 +96,7 @@ void WS2812_Encode(uint8_t r, uint8_t g, uint8_t b)
 
 void WS2812_Update(void) 
 {
+  
   pwmIdx = 0; 
   
   // 1. 编码所有LED数据
@@ -94,9 +114,13 @@ void WS2812_Update(void)
   DMA2_Stream5->NDTR = pwmIdx; // 设置传输数据量
   DMA2_Stream5->CR |= DMA_SxCR_EN; // 启动DMA
   
-  // 4. 等待传输完成（可选，可用中断代替）
+  // 临时禁用DMA中断，防止标志被中断清除
+  DMA_ITConfig(DMA2_Stream5, DMA_IT_TC, DISABLE);
+  DMA_Cmd(DMA2_Stream5, ENABLE);
+  // 4. 等待传输完成
   while(DMA_GetFlagStatus(DMA2_Stream5, DMA_FLAG_TCIF5) == RESET);
   DMA_ClearFlag(DMA2_Stream5, DMA_FLAG_TCIF5);
+
 }
 
 

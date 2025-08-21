@@ -1,0 +1,16 @@
+.\objects\tasks.o: FreeRTOS_CORE\tasks.c
+.\objects\tasks.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\tasks.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\tasks.o: FreeRTOS_CORE\FreeRTOS.h
+.\objects\tasks.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\tasks.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tasks.o: FreeRTOS_CORE\FreeRTOSConfig.h
+.\objects\tasks.o: FreeRTOS_CORE\projdefs.h
+.\objects\tasks.o: FreeRTOS_CORE\portable.h
+.\objects\tasks.o: FreeRTOS_CORE\deprecated_definitions.h
+.\objects\tasks.o: .\FreeRTOS_PORT\portmacro.h
+.\objects\tasks.o: FreeRTOS_CORE\mpu_wrappers.h
+.\objects\tasks.o: FreeRTOS_CORE\task.h
+.\objects\tasks.o: FreeRTOS_CORE\list.h
+.\objects\tasks.o: FreeRTOS_CORE\timers.h
+.\objects\tasks.o: FreeRTOS_CORE\stack_macros.h

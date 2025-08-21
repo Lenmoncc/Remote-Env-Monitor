@@ -47,6 +47,15 @@
 ".\objects\stm32f4xx_wwdg.o"
 ".\objects\ws2812.o"
 ".\objects\delay.o"
+".\objects\croutine.o"
+".\objects\event_groups.o"
+".\objects\list.o"
+".\objects\queue.o"
+".\objects\stream_buffer.o"
+".\objects\tasks.o"
+".\objects\timers.o"
+".\objects\heap_4.o"
+".\objects\port.o"
 --strict --scatter ".\Objects\TEST.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

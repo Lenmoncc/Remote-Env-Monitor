@@ -36,4 +36,14 @@
 .\objects\main.o: .\Drivers\stm32f4xx_fsmc.h
 .\objects\main.o: .\Hardware\ws2812.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\main.o: .\FreeRTOS_CORE\FreeRTOS.h
+.\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: .\FreeRTOS_CORE\FreeRTOSConfig.h
+.\objects\main.o: .\FreeRTOS_CORE\projdefs.h
+.\objects\main.o: .\FreeRTOS_CORE\portable.h
+.\objects\main.o: .\FreeRTOS_CORE\deprecated_definitions.h
+.\objects\main.o: .\FreeRTOS_PORT\portmacro.h
+.\objects\main.o: .\FreeRTOS_CORE\mpu_wrappers.h
+.\objects\main.o: .\FreeRTOS_CORE\task.h
+.\objects\main.o: .\FreeRTOS_CORE\list.h
 .\objects\main.o: .\System\Delay.h

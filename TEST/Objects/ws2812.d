@@ -36,3 +36,13 @@
 .\objects\ws2812.o: .\Drivers\stm32f4xx_dcmi.h
 .\objects\ws2812.o: .\Drivers\stm32f4xx_fsmc.h
 .\objects\ws2812.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\FreeRTOS.h
+.\objects\ws2812.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\FreeRTOSConfig.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\projdefs.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\portable.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\deprecated_definitions.h
+.\objects\ws2812.o: .\FreeRTOS_PORT\portmacro.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\mpu_wrappers.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\task.h
+.\objects\ws2812.o: .\FreeRTOS_CORE\list.h
