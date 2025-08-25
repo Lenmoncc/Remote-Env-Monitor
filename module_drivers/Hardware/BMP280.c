@@ -60,6 +60,7 @@ void BMP280_ReadMultiReg(uint8_t reg, uint8_t *buf, uint8_t len) {
 void BMP280_Reset(void) {
     BMP280_WriteReg(BMP280_REG_RESET, 0xB6); 
     Delay_ms(10);  
+	//vTaskDelay(pdMS_TO_TICKS(10));
 }
 
 /**

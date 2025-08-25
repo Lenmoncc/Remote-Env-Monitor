@@ -6,6 +6,8 @@
 #include "IIC_1.h"
 #include "UART_5.h"
 #include "Delay.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 
 #define BH1750_ADDR_H 0x46  

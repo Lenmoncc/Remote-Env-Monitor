@@ -3,9 +3,11 @@
 #include "Delay.h"  
 #include "UART_5.h"
 
+AHT10_Data data;
 
 uint8_t aht10_init(void) {
-  Delay_ms(40);
+  //vTaskDelay(pdMS_TO_TICKS(40));
+	Delay_ms(40);
   //IIC1_Init();
   
   MyIIC1_Start();

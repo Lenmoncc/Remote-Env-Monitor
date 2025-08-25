@@ -7,48 +7,56 @@
 #include "sgp30.h"
 #include "BH1750.h"
 #include "BMP280.h"
+#include "FreeRTOS.h"
+#include "task.h"  
 
 
+#define SENSOR_TASK_PRIORITY 1
 
-int main(void)
-{
-	SystemInit();
-	IIC1_Init();
-	Delay_Init();
-	UART5_Init();
-	USART1_Init(115200);
-	sgp30_data_show_init();
-	BH1750_Init();
-	BMP280_Init(&bmp_config);
+#define SENSOR_TASK_STACK_SIZE 128
 
-	UART5_SendString("UART5 Communication Ready!\r\n");
-
-
-	
-
-    while(1)  
-	{	
-		//aht10_get_data(&data);
-		sgp30_data_show();
-		BH1750_ReadLight();  
-		BMP280_GetData();
-
-		USART1_SendString("Hello World!\r\n");
-		Delay_ms(1000);
-//		if(uart5_rx_flag) { // 检查是否有新数据
-//        	UART5_SendChar(uart5_rx_buf); // 回发数据
-//        	uart5_rx_flag = 0; // 清除标志
-//		}
-		//char received = UART5_ReceiveChar();
-		//UART5_SendChar(received);
-
+// 传感器数据采集任务
+void SensorTask(void *pvParameters) {
+    while(1) {
+        // 循环读取各传感器数据（自带串口打印）
+        aht10_get_data(&data);
+        sgp30_data_show();
+        BH1750_ReadLight();  
+        BMP280_GetData();
+        
+        USART1_SendString("Hello World!\r\n");
+        
+        
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
+int main(void) {
+    // 硬件初始化（保持原有顺序）
+    SystemInit();
+    IIC1_Init();
+    Delay_Init();
+    UART5_Init();
+    USART1_Init(115200);
+    sgp30_data_show_init();
+    BH1750_Init();
+    BMP280_Init(&bmp_config);
 
-
-
-
-
-
-
+    UART5_SendString("UART5 Communication Ready!\r\n");
+    
+    // 创建传感器任务
+    xTaskCreate(
+        SensorTask,           // 任务函数
+        "SensorTask",         // 任务名称（调试用）
+        SENSOR_TASK_STACK_SIZE, // 栈大小
+        NULL,                 // 传递给任务的参数
+        SENSOR_TASK_PRIORITY, // 优先级
+        NULL                  // 任务句柄（不需要可设为NULL）
+    );
+    
+    // 启动任务调度器
+    vTaskStartScheduler();
+    
+    // 如果调度器启动成功，不会执行到这里
+    while(1);
+}

@@ -6,6 +6,8 @@
 #include "SPI_1.h"
 #include "Delay.h"  
 #include "UART_5.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 
 // BMP280¼Ä´æÆ÷µØÖ·¶¨Òå

@@ -4,6 +4,8 @@
 #include "stm32f4xx.h"
 #include "IIC_1.h"
 #include "UART_5.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 
 #define SGP30_ADDR_W 0xB0  

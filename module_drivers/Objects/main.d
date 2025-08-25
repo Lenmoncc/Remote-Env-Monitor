@@ -40,6 +40,16 @@
 .\objects\main.o: .\Hardware\UART_5.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\main.o: .\FreeRTOS_CORE\FreeRTOS.h
+.\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: .\FreeRTOS_CORE\FreeRTOSConfig.h
+.\objects\main.o: .\FreeRTOS_CORE\projdefs.h
+.\objects\main.o: .\FreeRTOS_CORE\portable.h
+.\objects\main.o: .\FreeRTOS_CORE\deprecated_definitions.h
+.\objects\main.o: .\FreeRTOS_PORT\portmacro.h
+.\objects\main.o: .\FreeRTOS_CORE\mpu_wrappers.h
+.\objects\main.o: .\FreeRTOS_CORE\task.h
+.\objects\main.o: .\FreeRTOS_CORE\list.h
 .\objects\main.o: .\Hardware\USART_1.h
 .\objects\main.o: .\Hardware\sgp30.h
 .\objects\main.o: .\Hardware\BH1750.h

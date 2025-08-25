@@ -40,3 +40,13 @@
 .\objects\aht10.o: Hardware\UART_5.h
 .\objects\aht10.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\aht10.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\aht10.o: .\FreeRTOS_CORE\FreeRTOS.h
+.\objects\aht10.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\aht10.o: .\FreeRTOS_CORE\FreeRTOSConfig.h
+.\objects\aht10.o: .\FreeRTOS_CORE\projdefs.h
+.\objects\aht10.o: .\FreeRTOS_CORE\portable.h
+.\objects\aht10.o: .\FreeRTOS_CORE\deprecated_definitions.h
+.\objects\aht10.o: .\FreeRTOS_PORT\portmacro.h
+.\objects\aht10.o: .\FreeRTOS_CORE\mpu_wrappers.h
+.\objects\aht10.o: .\FreeRTOS_CORE\task.h
+.\objects\aht10.o: .\FreeRTOS_CORE\list.h

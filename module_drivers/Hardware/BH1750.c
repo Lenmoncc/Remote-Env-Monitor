@@ -3,7 +3,8 @@
 void BH1750_Init(void) {
     //IIC1_Init();               
     BH1750_SendCmd(POWER_ON);  
-    Delay_ms(10);              
+    Delay_ms(10);  
+	//vTaskDelay(pdMS_TO_TICKS(10));
 }
 
 void BH1750_SendCmd(uint8_t cmd) {
@@ -24,6 +25,7 @@ float BH1750_ReadLight(void) {
 
     BH1750_SendCmd(CONT_H_RES);
     Delay_ms(120);  
+	//vTaskDelay(pdMS_TO_TICKS(120));
 
    
     MyIIC1_Start();                       

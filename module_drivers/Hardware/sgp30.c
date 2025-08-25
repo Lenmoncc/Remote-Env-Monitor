@@ -101,6 +101,7 @@ static uint8_t SGP30_SendCmd(uint16_t cmd) {
 uint8_t SGP30_Init(void) {
     //IIC1_Init(); // 初始化软件I2C（GPIOB8/9）
     Delay_ms(10); // 上电稳定延时
+	//vTaskDelay(pdMS_TO_TICKS(10));
     // 发送初始化命令，需等待最大10ms
     if (SGP30_SendCmd(SGP30_CMD_INIT) != 0) return 1;
     Delay_ms(10);
@@ -118,7 +119,8 @@ uint8_t SGP30_MeasureIAQ(uint16_t *co2eq, uint16_t *tvoc) {
     
     // 发送测量命令，等待最大12ms
     if (SGP30_SendCmd(SGP30_CMD_MEASURE_IAQ) != 0) return 1;
-    Delay_ms(12);
+    //Delay_ms(12);
+	vTaskDelay(pdMS_TO_TICKS(12));
     
     // 读取6字节数据
     MyIIC1_Start();
