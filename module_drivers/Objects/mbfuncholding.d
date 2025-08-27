@@ -1,0 +1,12 @@
+.\objects\mbfuncholding.o: Modbus_CORE\mbfuncholding.c
+.\objects\mbfuncholding.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbfuncholding.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbfuncholding.o: .\Modbus_PORT\port.h
+.\objects\mbfuncholding.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbfuncholding.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbfuncholding.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbfuncholding.o: Modbus_CORE\mb.h
+.\objects\mbfuncholding.o: Modbus_CORE\mbport.h
+.\objects\mbfuncholding.o: Modbus_CORE\mbproto.h
+.\objects\mbfuncholding.o: Modbus_CORE\mbframe.h
+.\objects\mbfuncholding.o: Modbus_CORE\mbconfig.h

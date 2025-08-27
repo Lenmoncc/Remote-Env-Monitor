@@ -46,7 +46,7 @@ xMBPortEventPost( eMBEventType eEvent )
 BOOL
 xMBPortEventGet( eMBEventType * eEvent )
 {
-    BOOL            xEventHappened = FALSE;
+    BOOL xEventHappened = FALSE;
 
     if( xEventInQueue )
     {

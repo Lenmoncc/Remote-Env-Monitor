@@ -25,6 +25,7 @@
 #include <assert.h>
 #include <inttypes.h>
 
+
 #define	INLINE                      inline
 #define PR_BEGIN_EXTERN_C           extern "C" {
 #define	PR_END_EXTERN_C             }

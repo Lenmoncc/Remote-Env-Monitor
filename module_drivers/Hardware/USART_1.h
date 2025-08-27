@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "Delay.h"
+#include "port.h"
+#include "mbport.h"
 
 // 接收缓冲区大小
 #define RX_BUFFER_SIZE 256

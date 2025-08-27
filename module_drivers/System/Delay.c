@@ -89,39 +89,27 @@
 #include "Delay.h"
 #include "stm32f4xx.h"
 
-#define SYSTEM_CORE_CLOCK 168000000UL  // 168 MHz
 
-/**
-  * @brief  使用 TIM2 初始化为 1MHz 计数器（1us 递增）
-  * @note   确保在 RCC 时钟中已经开启了 TIM2 时钟
-  */
 void Delay_Init(void)
 {
-    // 打开 TIM2 时钟
-    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 
-    // 复位 TIM2
-    TIM2->CR1 = 0;
-    TIM2->PSC = (SYSTEM_CORE_CLOCK / 1000000) - 1;  // 分频到 1MHz (1us per tick)
-    TIM2->ARR = 0xFFFFFFFF;  // 自动重装载最大值
-    TIM2->EGR = TIM_EGR_UG;  // 更新寄存器
-    TIM2->CR1 |= TIM_CR1_CEN;  // 启动 TIM2
+    TIM_TimeBaseInitTypeDef TIM_Init;
+    TIM_Init.TIM_Prescaler = (SystemCoreClock / 1000000) - 1;  // 1 MHz -> 1 μs 分辨率
+    TIM_Init.TIM_Period = 0xFFFFFFFF;  // 最大周期，延时用轮询实现
+    TIM_Init.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_Init.TIM_CounterMode = TIM_CounterMode_Up;
+    TIM_TimeBaseInit(TIM2, &TIM_Init);
+
+    TIM_Cmd(TIM2, ENABLE);
 }
 
-/**
-  * @brief  微秒延时
-  * @param  us: 延时时间，单位: 微秒
-  */
 void Delay_us(uint32_t us)
 {
-    uint32_t start = TIM2->CNT;
-    while ((TIM2->CNT - start) < us);
+    uint32_t start = TIM_GetCounter(TIM2);
+    while ((TIM_GetCounter(TIM2) - start) < us);
 }
 
-/**
-  * @brief  毫秒延时
-  * @param  ms: 延时时间，单位: 毫秒
-  */
 void Delay_ms(uint32_t ms)
 {
     while (ms--) {
@@ -129,13 +117,10 @@ void Delay_ms(uint32_t ms)
     }
 }
 
-/**
-  * @brief  秒延时
-  * @param  s: 延时时间，单位: 秒
-  */
 void Delay_s(uint32_t s)
 {
     while (s--) {
         Delay_ms(1000);
     }
 }
+

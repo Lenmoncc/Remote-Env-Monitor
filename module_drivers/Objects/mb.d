@@ -1,0 +1,15 @@
+.\objects\mb.o: Modbus_CORE\mb.c
+.\objects\mb.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mb.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mb.o: .\Modbus_PORT\port.h
+.\objects\mb.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mb.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mb.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mb.o: Modbus_CORE\mb.h
+.\objects\mb.o: Modbus_CORE\mbport.h
+.\objects\mb.o: Modbus_CORE\mbproto.h
+.\objects\mb.o: Modbus_CORE\mbconfig.h
+.\objects\mb.o: Modbus_CORE\mbframe.h
+.\objects\mb.o: Modbus_CORE\mbfunc.h
+.\objects\mb.o: Modbus_CORE\mbrtu.h
+.\objects\mb.o: Modbus_CORE\mbascii.h

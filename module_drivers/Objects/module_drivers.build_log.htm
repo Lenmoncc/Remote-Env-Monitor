@@ -22,28 +22,26 @@ Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
 E:\正点原子阿尔法\STM32F407\module_drivers\module_drivers.uvprojx
-Project File Date:  08/21/2025
+Project File Date:  08/27/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling Delay.c...
-.\Inc\stm32f4xx.h(11581): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM1_STOP"  (declared at line 11574)
-  #define  DBGMCU_APB2_FZ_DBG_TIM1_STOP        DBGMCU_APB1_FZ_DBG_TIM1_STOP    
-.\Inc\stm32f4xx.h(11582): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM8_STOP"  (declared at line 11575)
-  #define  DBGMCU_APB2_FZ_DBG_TIM8_STOP        DBGMCU_APB1_FZ_DBG_TIM8_STOP
-.\Inc\stm32f4xx.h(11583): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM9_STOP"  (declared at line 11576)
-  #define  DBGMCU_APB2_FZ_DBG_TIM9_STOP        DBGMCU_APB1_FZ_DBG_TIM9_STOP
-.\Inc\stm32f4xx.h(11584): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM10_STOP"  (declared at line 11577)
-  #define  DBGMCU_APB2_FZ_DBG_TIM10_STOP       DBGMCU_APB1_FZ_DBG_TIM10_STOP
-.\Inc\stm32f4xx.h(11585): warning:  #47-D: incompatible redefinition of macro "DBGMCU_APB2_FZ_DBG_TIM11_STOP"  (declared at line 11578)
-  #define  DBGMCU_APB2_FZ_DBG_TIM11_STOP       DBGMCU_APB1_FZ_DBG_TIM11_STOP
-System\Delay.c: 5 warnings, 0 errors
+compiling mbrtu.c...
+Modbus_CORE\mbrtu.c(152): warning:  #550-D: variable "xFrameReceived"  was set but never used
+      BOOL            xFrameReceived = FALSE;
+Modbus_CORE\mbrtu.c: 1 warning, 0 errors
 linking...
-Program Size: Code=17328 RO-data=744 RW-data=200 ZI-data=78408  
-".\Objects\module_drivers.axf" - 0 Error(s), 5 Warning(s).
+Program Size: Code=19164 RO-data=744 RW-data=380 ZI-data=78484  
+".\Objects\module_drivers.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.ARM_Compiler.1.7.2.pack
+                Keil::ARM_Compiler@1.7.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDERR Variant: ITM Version: 1.2.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F4xx_DFP.3.1.0.pack
@@ -51,9 +49,13 @@ Package Vendor: Keil
                 STMicroelectronics STM32F4 Series Device Support
 
 <h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+
+   * Component: Keil::Compiler&ARM Compiler:I/O:STDERR&ITM@1.2.0
+      Source file:   Source/retarget_io.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

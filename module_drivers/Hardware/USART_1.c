@@ -1,5 +1,6 @@
 #include "USART_1.h"
 
+
 // 接收缓冲区及相关变量
 static uint8_t rx_buffer[RX_BUFFER_SIZE];
 static volatile uint16_t rx_head = 0;
@@ -108,26 +109,36 @@ void USART1_Flush(void)
 void USART1_IRQHandler(void)
 {
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
-        // 读取接收到的数据
         uint8_t data = USART_ReceiveData(USART1);
-        
-        // 将数据存入缓冲区（环形缓冲区）
+
+        // ===== 通知 Modbus 协议栈有新数据到达 =====
+        extern BOOL rx_enabled;  // 在 portserial.c 定义
+        if (rx_enabled) {
+            pxMBFrameCBByteReceived();
+        }
+
+        // ===== 原有环形缓冲区逻辑 =====
         uint16_t next_head = (rx_head + 1) % RX_BUFFER_SIZE;
-        
-        // 如果缓冲区未满，则存储数据
         if (next_head != rx_tail) {
             rx_buffer[rx_head] = data;
             rx_head = next_head;
         }
-        
-        // 清除中断标志
+
         USART_ClearITPendingBit(USART1, USART_IT_RXNE);
     }
-    
-    // 处理其他可能的中断（如溢出错误）
+
+    if (USART_GetITStatus(USART1, USART_IT_TXE) != RESET) {
+        // ===== 通知 Modbus 协议栈可以发送下一个字节 =====
+        extern BOOL tx_enabled;  // 在 portserial.c 定义
+        if (tx_enabled) {
+            pxMBFrameCBTransmitterEmpty();
+        }
+
+        USART_ClearITPendingBit(USART1, USART_IT_TXE);
+    }
+
     if (USART_GetITStatus(USART1, USART_IT_ORE) != RESET) {
-        // 读取SR寄存器清除ORE标志
-        USART_ReceiveData(USART1);
+        USART_ReceiveData(USART1); // 清除 ORE 标志
         USART_ClearITPendingBit(USART1, USART_IT_ORE);
     }
 }

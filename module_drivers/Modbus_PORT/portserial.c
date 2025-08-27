@@ -20,6 +20,7 @@
  */
 
 #include "port.h"
+#include "USART_1.h"
 
 /* ----------------------- Modbus includes ----------------------------------*/
 #include "mb.h"
@@ -30,36 +31,51 @@ static void prvvUARTTxReadyISR( void );
 static void prvvUARTRxISR( void );
 
 /* ----------------------- Start implementation -----------------------------*/
+
+BOOL rx_enabled = FALSE;
+BOOL tx_enabled = FALSE;
+
 void
 vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
 {
-    /* If xRXEnable enable serial receive interrupts. If xTxENable enable
-     * transmitter empty interrupts.
-     */
+	rx_enabled = xRxEnable;
+    tx_enabled = xTxEnable;
+
+    if (xRxEnable) {
+        USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+    } else {
+        USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
+    }
+
+    if (xTxEnable) {
+        USART_ITConfig(USART1, USART_IT_TXE, ENABLE);
+    } else {
+        USART_ITConfig(USART1, USART_IT_TXE, DISABLE);
+    }
 }
 
 BOOL
 xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBParity eParity )
 {
-    return FALSE;
+	USART1_Init(ulBaudRate);
+    return TRUE;
 }
 
 BOOL
 xMBPortSerialPutByte( CHAR ucByte )
 {
-    /* Put a byte in the UARTs transmit buffer. This function is called
-     * by the protocol stack if pxMBFrameCBTransmitterEmpty( ) has been
-     * called. */
+	USART1_SendChar((uint8_t)ucByte);
     return TRUE;
 }
 
 BOOL
 xMBPortSerialGetByte( CHAR * pucByte )
 {
-    /* Return the byte in the UARTs receive buffer. This function is called
-     * by the protocol stack after pxMBFrameCBByteReceived( ) has been called.
-     */
-    return TRUE;
+	if (USART1_Available() > 0) {
+        *pucByte = (CHAR)USART1_ReadByte();
+        return TRUE;
+    }
+    return FALSE;
 }
 
 /* Create an interrupt handler for the transmit buffer empty interrupt

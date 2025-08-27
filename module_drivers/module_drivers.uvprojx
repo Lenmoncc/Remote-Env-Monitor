@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Inc;.\System;.\CMSIS;.\Drivers;.\Hardware;.\FreeRTOS_CORE;.\FreeRTOS_PORT</IncludePath>
+              <IncludePath>.\User;.\Inc;.\System;.\CMSIS;.\Drivers;.\Hardware;.\FreeRTOS_CORE;.\FreeRTOS_PORT;.\Modbus_CORE;.\Modbus_PORT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -969,6 +969,16 @@
               <FileType>5</FileType>
               <FilePath>.\System\Delay.h</FilePath>
             </File>
+            <File>
+              <FileName>mb_user.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mb_user.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_user.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mb_user.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1121,13 +1131,168 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>Modbus_CORE</GroupName>
+          <Files>
+            <File>
+              <FileName>mb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mb.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mb.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbascii.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbascii.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbascii.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbascii.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbconfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbcrc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbcrc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbcrc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbcrc.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbframe.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbframe.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbfunc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbfunc.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbfunccoils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfunccoils.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdiag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfuncdiag.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdisc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfuncdisc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncholding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfuncholding.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncinput.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfuncinput.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncother.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbfuncother.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbport.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbport.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbproto.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbproto.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbrtu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbrtu.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbrtu.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbrtu.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbtcp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbtcp.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbtcp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbtcp.h</FilePath>
+            </File>
+            <File>
+              <FileName>mbutils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_CORE\mbutils.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbutils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_CORE\mbutils.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Modbus_PORT</GroupName>
+          <Files>
+            <File>
+              <FileName>port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Modbus_PORT\port.h</FilePath>
+            </File>
+            <File>
+              <FileName>portevent.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_PORT\portevent.c</FilePath>
+            </File>
+            <File>
+              <FileName>portserial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_PORT\portserial.c</FilePath>
+            </File>
+            <File>
+              <FileName>porttimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Modbus_PORT\porttimer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::Compiler</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>
 
   <RTE>
     <apis/>
-    <components/>
+    <components>
+      <component Cbundle="ARM Compiler" Cclass="Compiler" Cgroup="I/O" Csub="STDERR" Cvariant="ITM" Cvendor="Keil" Cversion="1.2.0" condition="ARMCC Cortex-M with ITM">
+        <package name="ARM_Compiler" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="Keil" version="1.7.2"/>
+        <targetInfos>
+          <targetInfo name="Target 1"/>
+        </targetInfos>
+      </component>
+    </components>
     <files/>
   </RTE>
 

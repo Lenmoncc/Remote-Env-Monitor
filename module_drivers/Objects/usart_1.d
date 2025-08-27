@@ -38,3 +38,7 @@
 .\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\usart_1.o: .\System\Delay.h
+.\objects\usart_1.o: .\Modbus_PORT\port.h
+.\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\usart_1.o: .\Modbus_CORE\mbport.h

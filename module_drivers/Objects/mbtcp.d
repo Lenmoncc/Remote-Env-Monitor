@@ -1,0 +1,13 @@
+.\objects\mbtcp.o: Modbus_CORE\mbtcp.c
+.\objects\mbtcp.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mbtcp.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbtcp.o: .\Modbus_PORT\port.h
+.\objects\mbtcp.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\mbtcp.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\mbtcp.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbtcp.o: Modbus_CORE\mb.h
+.\objects\mbtcp.o: Modbus_CORE\mbport.h
+.\objects\mbtcp.o: Modbus_CORE\mbproto.h
+.\objects\mbtcp.o: Modbus_CORE\mbconfig.h
+.\objects\mbtcp.o: Modbus_CORE\mbtcp.h
+.\objects\mbtcp.o: Modbus_CORE\mbframe.h
