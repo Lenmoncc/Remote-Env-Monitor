@@ -972,12 +972,12 @@
             <File>
               <FileName>mb_user.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mb_user.c</FilePath>
+              <FilePath>.\System\mb_user.c</FilePath>
             </File>
             <File>
               <FileName>mb_user.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\mb_user.h</FilePath>
+              <FilePath>.\System\mb_user.h</FilePath>
             </File>
           </Files>
         </Group>

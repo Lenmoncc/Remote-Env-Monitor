@@ -9,6 +9,8 @@
 #include "BMP280.h"
 #include "FreeRTOS.h"
 #include "task.h"  
+#include "mb.h"
+#include "mbport.h"
 
 
 #define SENSOR_TASK_PRIORITY 1
@@ -45,18 +47,27 @@ int main(void) {
     UART5_SendString("UART5 Communication Ready!\r\n");
     
     // 创建传感器任务
-    xTaskCreate(
-        SensorTask,           // 任务函数
-        "SensorTask",         // 任务名称（调试用）
-        SENSOR_TASK_STACK_SIZE, // 栈大小
-        NULL,                 // 传递给任务的参数
-        SENSOR_TASK_PRIORITY, // 优先级
-        NULL                  // 任务句柄（不需要可设为NULL）
-    );
+//    xTaskCreate(
+//        SensorTask,           // 任务函数
+//        "SensorTask",         // 任务名称（调试用）
+//        SENSOR_TASK_STACK_SIZE, // 栈大小
+//        NULL,                 // 传递给任务的参数
+//        SENSOR_TASK_PRIORITY, // 优先级
+//        NULL                  // 任务句柄（不需要可设为NULL）
+//    );
     
     // 启动任务调度器
-    vTaskStartScheduler();
+    //vTaskStartScheduler();
     
     // 如果调度器启动成功，不会执行到这里
-    while(1);
+	USART1_SendString("Hello World!\r\n");
+	
+    eMBInit(MB_RTU, 1, 1, 115200, MB_PAR_NONE);
+
+    // 启动协议栈
+    eMBEnable();
+    while(1)
+	{
+		eMBPoll();
+	}
 }

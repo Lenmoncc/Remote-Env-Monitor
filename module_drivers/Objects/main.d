@@ -60,3 +60,5 @@
 .\objects\main.o: .\Hardware\BMP280.h
 .\objects\main.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: .\Hardware\SPI_1.h
+.\objects\main.o: .\Modbus_CORE\mb.h
+.\objects\main.o: .\Modbus_CORE\mbproto.h
