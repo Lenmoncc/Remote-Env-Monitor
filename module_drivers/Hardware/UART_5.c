@@ -6,18 +6,18 @@ void UART5_Init()
 {
 	//SystemClock_Init();
 	
-	//Ê¹ÄÜÍâÉèÊ±ÖÓ
+	//Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE);
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOD, ENABLE);
 	
 	    
-	//Òý½Å¸´ÓÃÓ³Éä
+	//ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ó³ï¿½ï¿½
     GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5);
     GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_UART5);
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	    
-	//ÅäÖÃUART5 TX (PC12) Òý½Å
+	//ï¿½ï¿½ï¿½ï¿½UART5 TX (PC12) ï¿½ï¿½ï¿½ï¿½
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -25,7 +25,7 @@ void UART5_Init()
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	//ÅäÖÃUART5 RX (PD2) Òý½Å
+	//ï¿½ï¿½ï¿½ï¿½UART5 RX (PD2) ï¿½ï¿½ï¿½ï¿½
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_Init(GPIOD, &GPIO_InitStructure);
@@ -34,7 +34,7 @@ void UART5_Init()
 	
 	USART_InitTypeDef USART_InitStructure;
 	
-	//ÅäÖÃUART5²ÎÊý
+	//ï¿½ï¿½ï¿½ï¿½UART5ï¿½ï¿½ï¿½ï¿½
     USART_InitStructure.USART_BaudRate = 115200;
     USART_InitStructure.USART_WordLength = USART_WordLength_8b;
     USART_InitStructure.USART_StopBits = USART_StopBits_1;
@@ -59,7 +59,7 @@ void UART5_Init()
 
 void UART5_SendChar(char c) {
     
-    while(USART_GetFlagStatus(UART5, USART_FLAG_TXE) == RESET); // µÈ´ý·¢ËÍÊý¾Ý¼Ä´æÆ÷Îª¿Õ
+    while(USART_GetFlagStatus(UART5, USART_FLAG_TXE) == RESET); // ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼Ä´ï¿½ï¿½ï¿½Îªï¿½ï¿½
     USART_SendData(UART5, c);
 }
 
@@ -71,7 +71,7 @@ void UART5_SendString(char *str) {
 
 char UART5_ReceiveChar(void) {
     
-    while(USART_GetFlagStatus(UART5, USART_FLAG_RXNE) == RESET); // µÈ´ý½ÓÊÕµ½Êý¾Ý
+    while(USART_GetFlagStatus(UART5, USART_FLAG_RXNE) == RESET); // ï¿½È´ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½
     return USART_ReceiveData(UART5);
 }
 
@@ -80,19 +80,19 @@ volatile uint8_t uart5_rx_flag = 0;
 
 void UART5_IRQHandler(void) {
     if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET) {
-        uart5_rx_buf = USART_ReceiveData(UART5); // »º´æÊý¾Ý
-        uart5_rx_flag = 1; // ÖÃÎ»±êÖ¾
+        uart5_rx_buf = USART_ReceiveData(UART5); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        uart5_rx_flag = 1; // ï¿½ï¿½Î»ï¿½ï¿½Ö¾
         //char received = USART_ReceiveData(UART5);
-        //UART5_SendChar(received);// »ØÏÔ½ÓÊÕµ½µÄ×Ö·û
-        USART_ClearITPendingBit(UART5, USART_IT_RXNE);// Çå³ýÖÐ¶Ï±êÖ¾
+        //UART5_SendChar(received);// ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+        USART_ClearITPendingBit(UART5, USART_IT_RXNE);// ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾
     }
 }
 
-int fputc(int ch, FILE *f)
-{
-    UART5_SendChar(ch);
-    return ch;
-}
+// int fputc(int ch, FILE *f)
+// {
+//     UART5_SendChar(ch);
+//     return ch;
+// }
 
 void UART5_Printf(char *format, ...)
 {

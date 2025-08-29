@@ -42,3 +42,5 @@
 .\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
 .\objects\usart_1.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
 .\objects\usart_1.o: .\Modbus_CORE\mbport.h
+.\objects\usart_1.o: .\Modbus_CORE\mb.h
+.\objects\usart_1.o: .\Modbus_CORE\mbproto.h

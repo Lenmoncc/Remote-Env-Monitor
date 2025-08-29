@@ -1,5 +1,4 @@
-#include "mb.h"
-#include "mbport.h"
+#include "mb_user.h"
 
 /* --------- 模拟寄存器区域 --------- */
 //输入寄存器起始地址
@@ -16,11 +15,10 @@
 //线圈数量
 #define REG_COILS_SIZE        16
 
-//开关寄存器起始地址
+//开关寄存器其实地址
 #define REG_DISCRETE_START    0x0000
 //开关寄存器数量
 #define REG_DISCRETE_SIZE     16
-
 
 /* Private variables ---------------------------------------------------------*/
 //输入寄存器内容
@@ -108,8 +106,8 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
 			case MB_REG_READ://读 MB_REG_READ = 0
         while(usNRegs > 0)
 				{
-					*pucRegBuffer++ = (uint8_t)(usRegHoldingBuf[iRegIndex] >> 8);            
-					*pucRegBuffer++ = (uint8_t)(usRegHoldingBuf[iRegIndex] & 0xFF); 
+					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] >> 8);            
+					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] & 0xFF); 
           iRegIndex++;
           usNRegs--;					
 				}                            
@@ -132,9 +130,6 @@ eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegi
 	return eStatus;
 }
 
-extern void xMBUtilSetBits( UCHAR * ucByteBuf, USHORT usBitOffset, UCHAR ucNBits,
-                UCHAR ucValue );
-extern UCHAR xMBUtilGetBits( UCHAR * ucByteBuf, USHORT usBitOffset, UCHAR ucNBits );
 /****************************************************************************
 * 名	  称：eMBRegCoilsCB 
 * 功    能：对应功能码有：01 读线圈 eMBFuncReadCoils
@@ -149,55 +144,44 @@ extern UCHAR xMBUtilGetBits( UCHAR * ucByteBuf, USHORT usBitOffset, UCHAR ucNBit
 *						0 区
 ****************************************************************************/
 eMBErrorCode
-eMBRegCoilsCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNCoils,
-              eMBRegisterMode eMode )
+eMBRegCoilsCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNCoils, eMBRegisterMode eMode )
 {
-  //错误状态
-  eMBErrorCode eStatus = MB_ENOERR;
-  //寄存器个数
-  int16_t iNCoils = ( int16_t )usNCoils;
-  //寄存器偏移量
-  int16_t usBitOffset;
-  
-  //检查寄存器是否在指定范围内
-  if( ( (int16_t)usAddress >= REG_COILS_START ) &&
-     ( usAddress + usNCoils <= REG_COILS_START + REG_COILS_SIZE ) )
-  {
-    //计算寄存器偏移量
-    usBitOffset = ( int16_t )( usAddress - REG_COILS_START );
-    switch ( eMode )
-    {
-      //读操作
-    case MB_REG_READ:
-      while( iNCoils > 0 )
-      {
-        *pucRegBuffer++ = xMBUtilGetBits( ucRegCoilsBuf, usBitOffset,
-                                         ( uint8_t )( iNCoils > 8 ? 8 : iNCoils ) );
-        iNCoils -= 8;
-        usBitOffset += 8;
-      }
-      break;
-      
-      //写操作
-    case MB_REG_WRITE:
-      while( iNCoils > 0 )
-      {
-        xMBUtilSetBits( ucRegCoilsBuf, usBitOffset,
-                       ( uint8_t )( iNCoils > 8 ? 8 : iNCoils ),
-                       *pucRegBuffer++ );
-        iNCoils -= 8;
-      }
-      break;
-    }
-    
-  }
-  else
-  {
-    eStatus = MB_ENOREG;
-  }
-  return eStatus;
-}
+	eMBErrorCode    eStatus = MB_ENOERR;
+	int             iRegIndex;
 
+
+	if((usAddress >= REG_HOLDING_START)&&\
+		((usAddress+usNCoils) <= (REG_HOLDING_START + REG_HOLDING_NREGS)))
+	{
+		iRegIndex = (int)(usAddress - usRegHoldingStart);
+		switch(eMode)
+		{                                       
+			case MB_REG_READ://读 MB_REG_READ = 0
+        while(usNCoils > 0)
+				{
+// 					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] >> 8);            
+// 					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] & 0xFF); 
+          iRegIndex++;
+          usNCoils--;					
+				}                            
+        break;
+			case MB_REG_WRITE://写 MB_REG_WRITE = 1
+				while(usNCoils > 0)
+				{         
+// 					usRegHoldingBuf[iRegIndex] = *pucRegBuffer++ << 8;
+//           usRegHoldingBuf[iRegIndex] |= *pucRegBuffer++;
+          iRegIndex++;
+          usNCoils--;
+        }				
+			}
+	}
+	else//错误
+	{
+		eStatus = MB_ENOREG;
+	}	
+	
+	return eStatus;
+}
 /****************************************************************************
 * 名	  称：eMBRegDiscreteCB 
 * 功    能：读取离散寄存器，对应功能码有：02 读离散寄存器 eMBFuncReadDiscreteInputs
@@ -210,32 +194,8 @@ eMBRegCoilsCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNCoils,
 eMBErrorCode
 eMBRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
 {
-  //错误状态
-  eMBErrorCode eStatus = MB_ENOERR;
-  //操作寄存器个数
-  int16_t iNDiscrete = ( int16_t )usNDiscrete;
-  //偏移量
-  uint16_t usBitOffset;
-  
-  //判断寄存器时候再制定范围内
-  if( ( (int16_t)usAddress >= REG_DISCRETE_START ) &&
-     ( usAddress + usNDiscrete <= REG_DISCRETE_START + REG_DISCRETE_SIZE ) )
-  {
-    //获得偏移量
-    usBitOffset = ( uint16_t )( usAddress - REG_DISCRETE_START );
-    
-    while( iNDiscrete > 0 )
-    {
-      *pucRegBuffer++ = xMBUtilGetBits( ucRegDiscreteBuf, usBitOffset,
-                                       ( uint8_t)( iNDiscrete > 8 ? 8 : iNDiscrete ) );
-      iNDiscrete -= 8;
-      usBitOffset += 8;
-    }
-    
-  }
-  else
-  {
-    eStatus = MB_ENOREG;
-  }
-  return eStatus;
+    ( void )pucRegBuffer;
+    ( void )usAddress;
+    ( void )usNDiscrete;
+    return MB_ENOREG;
 }

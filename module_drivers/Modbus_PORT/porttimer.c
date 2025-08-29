@@ -62,7 +62,7 @@ vMBPortTimersEnable(  )
     TIM_Cmd(TIM2, ENABLE);
 }
 
-inline void
+void
 vMBPortTimersDisable(  )
 {
     /* Disable any pending timers. */
@@ -84,7 +84,7 @@ void TIM2_IRQHandler(void)
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET) {
         TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 
-        // 通知 Modbus 协议栈超时已到
+        // 通知 Modbus 协锟斤拷栈锟斤拷时锟窖碉拷
         pxMBPortCBTimerExpired();
     }
 }

@@ -32,26 +32,24 @@ static void prvvUARTRxISR( void );
 
 /* ----------------------- Start implementation -----------------------------*/
 
-BOOL rx_enabled = FALSE;
-BOOL tx_enabled = FALSE;
-
 void
 vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
 {
-	rx_enabled = xRxEnable;
-    tx_enabled = xTxEnable;
-
-    if (xRxEnable) {
-        USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
-    } else {
-        USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
-    }
-
-    if (xTxEnable) {
-        USART_ITConfig(USART1, USART_IT_TXE, ENABLE);
-    } else {
-        USART_ITConfig(USART1, USART_IT_TXE, DISABLE);
-    }
+    if(xRxEnable == TRUE)
+	{
+		USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+	}
+	else{
+		USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
+	}
+	
+	if(xTxEnable == TRUE)
+	{
+		USART_ITConfig(USART1, USART_IT_TC, ENABLE);
+	}
+	else{
+		USART_ITConfig(USART1, USART_IT_TC, DISABLE);
+	}
 }
 
 BOOL
@@ -64,18 +62,15 @@ xMBPortSerialInit( UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBParity e
 BOOL
 xMBPortSerialPutByte( CHAR ucByte )
 {
-	USART1_SendChar((uint8_t)ucByte);
+    USART_SendData(USART1, ucByte);
     return TRUE;
 }
 
 BOOL
 xMBPortSerialGetByte( CHAR * pucByte )
 {
-	if (USART1_Available() > 0) {
-        *pucByte = (CHAR)USART1_ReadByte();
-        return TRUE;
-    }
-    return FALSE;
+    *pucByte = USART_ReceiveData(USART1); 
+    return TRUE;
 }
 
 /* Create an interrupt handler for the transmit buffer empty interrupt
@@ -97,4 +92,30 @@ static void prvvUARTTxReadyISR( void )
 static void prvvUARTRxISR( void )
 {
     pxMBFrameCBByteReceived(  );
+}
+
+
+void USART1_IRQHandler(void)
+{
+//发生接收中断
+  if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+  {
+    prvvUARTRxISR(); 
+    //清除中断标志位    
+    USART_ClearITPendingBit(USART1, USART_IT_RXNE);   
+  }
+	
+	if(USART_GetITStatus(USART1, USART_IT_ORE) == SET)
+  {  
+    USART_ClearITPendingBit(USART1, USART_IT_ORE);
+		prvvUARTRxISR(); 	
+  }
+  
+  //发生完成中断
+  if(USART_GetITStatus(USART1, USART_IT_TC) == SET)
+  {
+    prvvUARTTxReadyISR();
+    //清除中断标志
+    USART_ClearITPendingBit(USART1, USART_IT_TC);
+  }
 }

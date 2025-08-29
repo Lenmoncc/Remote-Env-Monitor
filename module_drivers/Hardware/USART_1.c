@@ -1,17 +1,11 @@
 #include "USART_1.h"
 
-
-// 接收缓冲区及相关变量
-static uint8_t rx_buffer[RX_BUFFER_SIZE];
-static volatile uint16_t rx_head = 0;
-static volatile uint16_t rx_tail = 0;
-
+uint8_t SendBuff[SENDBUFF_SIZE];
 // 初始化USART1
 void USART1_Init(uint32_t baudrate)
 {
     GPIO_InitTypeDef GPIO_InitStruct;
     USART_InitTypeDef USART_InitStruct;
-    NVIC_InitTypeDef NVIC_InitStruct;
 
     // 使能时钟
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -37,19 +31,17 @@ void USART1_Init(uint32_t baudrate)
     USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
     USART_InitStruct.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
     USART_Init(USART1, &USART_InitStruct);
+    USART_Cmd(USART1, ENABLE);
 
-    // 使能中断
-    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); // 使能接收中断
+    NVIC_InitTypeDef NVIC_InitStruct;
 
-    // NVIC配置
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+
     NVIC_InitStruct.NVIC_IRQChannel = USART1_IRQn;
-    NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 3;
-    NVIC_InitStruct.NVIC_IRQChannelSubPriority = 3;
+    NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
+    NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;
     NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStruct);
-
-    // 使能USART1
-    USART_Cmd(USART1, ENABLE);
 }
 
 // 发送一个字节
@@ -79,67 +71,23 @@ void USART1_Printf(const char *fmt, ...)
     USART1_SendString(buffer);
 }
 
-// 从缓冲区读取一个字节
-uint8_t USART1_ReadByte(void)
+int fputc(int ch, FILE *f)
 {
-    uint8_t data = 0;
-    
-    if (rx_head != rx_tail) {
-        data = rx_buffer[rx_tail];
-        rx_tail = (rx_tail + 1) % RX_BUFFER_SIZE;
-    }
-    
-    return data;
+		/* 发送一个字节数据到USART1 */
+		USART_SendData(USART1, (uint8_t) ch);
+		
+		/* 等待发送完毕 */
+		while (USART_GetFlagStatus(USART1, USART_FLAG_TC) == RESET);		
+	
+		return (ch);
 }
 
-// 获取缓冲区中可用的字节数
-uint16_t USART1_Available(void)
+int fgetc(FILE *f)
 {
-    return (rx_head >= rx_tail) ? (rx_head - rx_tail) : (RX_BUFFER_SIZE - rx_tail + rx_head);
+		/* 等待串口1输入数据 */
+		while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+
+		return (int)USART_ReceiveData(USART1);
 }
 
-// 清空接收缓冲区
-void USART1_Flush(void)
-{
-    rx_head = 0;
-    rx_tail = 0;
-}
-
-// USART1中断处理函数
-void USART1_IRQHandler(void)
-{
-    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) {
-        uint8_t data = USART_ReceiveData(USART1);
-
-        // ===== 通知 Modbus 协议栈有新数据到达 =====
-        extern BOOL rx_enabled;  // 在 portserial.c 定义
-        if (rx_enabled) {
-            pxMBFrameCBByteReceived();
-        }
-
-        // ===== 原有环形缓冲区逻辑 =====
-        uint16_t next_head = (rx_head + 1) % RX_BUFFER_SIZE;
-        if (next_head != rx_tail) {
-            rx_buffer[rx_head] = data;
-            rx_head = next_head;
-        }
-
-        USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-    }
-
-    if (USART_GetITStatus(USART1, USART_IT_TXE) != RESET) {
-        // ===== 通知 Modbus 协议栈可以发送下一个字节 =====
-        extern BOOL tx_enabled;  // 在 portserial.c 定义
-        if (tx_enabled) {
-            pxMBFrameCBTransmitterEmpty();
-        }
-
-        USART_ClearITPendingBit(USART1, USART_IT_TXE);
-    }
-
-    if (USART_GetITStatus(USART1, USART_IT_ORE) != RESET) {
-        USART_ReceiveData(USART1); // 清除 ORE 标志
-        USART_ClearITPendingBit(USART1, USART_IT_ORE);
-    }
-}
 

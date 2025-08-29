@@ -12,7 +12,7 @@ void UART5_Init(void);
 void UART5_SendChar(char c);
 void UART5_SendString(char *str);
 char UART5_ReceiveChar(void);
-int fputc(int ch, FILE *f);
+//int fputc(int ch, FILE *f);
 void UART5_Printf(char *format, ...);
 
 #endif

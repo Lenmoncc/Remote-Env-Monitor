@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\module_drivers.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\module_drivers.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Aug 28 15:51:00 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Aug 29 17:43:20 2025
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -109,7 +109,7 @@ Function Pointers
  <LI><a href="#[40]">TIM8_UP_TIM13_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[48]">UART4_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[49]">UART5_IRQHandler</a> from uart_5.o(i.UART5_IRQHandler) referenced from startup_stm32f40_41xxx.o(RESET)
- <LI><a href="#[39]">USART1_IRQHandler</a> from usart_1.o(i.USART1_IRQHandler) referenced from startup_stm32f40_41xxx.o(RESET)
+ <LI><a href="#[39]">USART1_IRQHandler</a> from portserial.o(i.USART1_IRQHandler) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[3a]">USART2_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[3b]">USART3_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[5b]">USART6_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
@@ -135,7 +135,7 @@ Function Pointers
  <LI><a href="#[6d]">eMBRTUSend</a> from mbrtu.o(i.eMBRTUSend) referenced from mb.o(i.eMBInit)
  <LI><a href="#[6b]">eMBRTUStart</a> from mbrtu.o(i.eMBRTUStart) referenced from mb.o(i.eMBInit)
  <LI><a href="#[6c]">eMBRTUStop</a> from mbrtu.o(i.eMBRTUStop) referenced from mb.o(i.eMBInit)
- <LI><a href="#[69]">fputc</a> from uart_5.o(i.fputc) referenced from printfa.o(i.__0printf)
+ <LI><a href="#[69]">fputc</a> from usart_1.o(i.fputc) referenced from printfa.o(i.__0printf)
  <LI><a href="#[66]">main</a> from main.o(i.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
  <LI><a href="#[76]">xMBASCIIReceiveFSM</a> from mbascii.o(i.xMBASCIIReceiveFSM) referenced from mb.o(i.eMBInit)
  <LI><a href="#[78]">xMBASCIITimerT1SExpired</a> from mbascii.o(i.xMBASCIITimerT1SExpired) referenced from mb.o(i.eMBInit)
@@ -151,7 +151,7 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(.text)
 </UL>
-<P><STRONG><a name="[fc]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[f8]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[79]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -161,29 +161,29 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[fd]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[f9]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[fe]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[fa]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[ff]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[fb]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[100]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[fc]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[101]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[fd]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[10]"></a>SVC_Handler</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[102]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
+<P><STRONG><a name="[fe]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
 
-<P><STRONG><a name="[103]"></a>__asm___6_port_c_39a90d8d__prvEnableVFP</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
+<P><STRONG><a name="[ff]"></a>__asm___6_port_c_39a90d8d__prvEnableVFP</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
 
 <P><STRONG><a name="[12]"></a>PendSV_Handler</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR><BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[104]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
+<P><STRONG><a name="[100]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
 
 <P><STRONG><a name="[a]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f40_41xxx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
@@ -433,11 +433,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReportSlaveID
 </UL>
 
-<P><STRONG><a name="[105]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[101]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[106]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[102]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[107]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[103]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[d8]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
@@ -451,7 +451,7 @@ Global Symbols
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[108]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[104]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[7f]"></a>__aeabi_dadd</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, dadd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
@@ -501,7 +501,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[109]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[105]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[7e]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
@@ -510,7 +510,7 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[10a]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[106]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[7d]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
@@ -518,13 +518,13 @@ Global Symbols
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[10b]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[107]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[80]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[10c]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[108]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[82]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
@@ -541,9 +541,9 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[10d]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[109]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[10e]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[10a]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[89]"></a>BH1750_Init</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, bh1750.o(i.BH1750_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = BH1750_Init &rArr; BH1750_SendCmd &rArr; MyIIC1_SendByte &rArr; MyIIC1_W_SDA &rArr; Delay_us
@@ -678,7 +678,7 @@ Global Symbols
 <P><STRONG><a name="[a4]"></a>GPIO_Init</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, stm32f4xx_gpio.o(i.GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MySPI_Init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC1_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
@@ -687,7 +687,7 @@ Global Symbols
 <P><STRONG><a name="[ac]"></a>GPIO_PinAFConfig</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f4xx_gpio.o(i.GPIO_PinAFConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_PinAFConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MySPI_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 </UL>
@@ -864,17 +864,18 @@ Global Symbols
 <P><STRONG><a name="[c3]"></a>NVIC_Init</STRONG> (Thumb, 98 bytes, Stack size 12 bytes, misc.o(i.NVIC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = NVIC_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortTimersInit
 </UL>
 
 <P><STRONG><a name="[c2]"></a>NVIC_PriorityGroupConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, misc.o(i.NVIC_PriorityGroupConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 </UL>
 
 <P><STRONG><a name="[a3]"></a>RCC_AHB1PeriphClockCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MySPI_Init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC1_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
@@ -886,7 +887,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ab]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MySPI_Init
 </UL>
 
@@ -902,7 +903,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGP30_SendCmd
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
 </UL>
 
 <P><STRONG><a name="[b5]"></a>SGP30_SetHumidity</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, sgp30.o(i.SGP30_SetHumidity))
@@ -914,7 +915,7 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MyIIC1_SendByte
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MyIIC1_Receive_Ack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
 </UL>
 
 <P><STRONG><a name="[ae]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_spi.o(i.SPI_Cmd))
@@ -983,15 +984,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[fa]"></a>TIM_ITConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ITConfig))
+<P><STRONG><a name="[f6]"></a>TIM_ITConfig</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_ITConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortTimersInit
 </UL>
 
-<P><STRONG><a name="[f5]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetAutoreload))
+<P><STRONG><a name="[f3]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetAutoreload))
 <BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 </UL>
 
-<P><STRONG><a name="[f4]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCounter))
+<P><STRONG><a name="[f2]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_tim.o(i.TIM_SetCounter))
 <BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 </UL>
 
@@ -1034,7 +1035,7 @@ Global Symbols
 <LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vsprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP280_Init
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
 </UL>
 
 <P><STRONG><a name="[c7]"></a>UART5_SendChar</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, uart_5.o(i.UART5_SendChar))
@@ -1043,8 +1044,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendString
+<BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendString
 </UL>
 
 <P><STRONG><a name="[c6]"></a>UART5_SendString</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, uart_5.o(i.UART5_SendString))
@@ -1056,84 +1056,58 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Printf
 </UL>
 
-<P><STRONG><a name="[f8]"></a>USART1_Available</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, usart_1.o(i.USART1_Available))
-<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
-</UL>
-
-<P><STRONG><a name="[39]"></a>USART1_IRQHandler</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, usart_1.o(i.USART1_IRQHandler))
+<P><STRONG><a name="[39]"></a>USART1_IRQHandler</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, portserial.o(i.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
+<BR>[Calls]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearITPendingBit
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvvUARTTxReadyISR
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvvUARTRxISR
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[ca]"></a>USART1_Init</STRONG> (Thumb, 164 bytes, Stack size 48 bytes, usart_1.o(i.USART1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<P><STRONG><a name="[cc]"></a>USART1_Init</STRONG> (Thumb, 162 bytes, Stack size 56 bytes, usart_1.o(i.USART1_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
+<BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_PriorityGroupConfig
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
-<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialInit
 </UL>
 
-<P><STRONG><a name="[f9]"></a>USART1_ReadByte</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, usart_1.o(i.USART1_ReadByte))
-<BR><BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
-</UL>
-
-<P><STRONG><a name="[cb]"></a>USART1_SendChar</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, usart_1.o(i.USART1_SendChar))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART1_SendChar
-</UL>
-<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
-</UL>
-<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendString
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
-</UL>
-
-<P><STRONG><a name="[cc]"></a>USART1_SendString</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, usart_1.o(i.USART1_SendString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART1_SendString &rArr; USART1_SendChar
-</UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendChar
-</UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
 <P><STRONG><a name="[bd]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ClearITPendingBit))
-<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[c1]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_Cmd))
-<BR><BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR><BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 </UL>
 
 <P><STRONG><a name="[c8]"></a>USART_GetFlagStatus</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_GetFlagStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendChar
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendChar
 </UL>
 
 <P><STRONG><a name="[bb]"></a>USART_GetITStatus</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, stm32f4xx_usart.o(i.USART_GetITStatus))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART_GetITStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[c4]"></a>USART_ITConfig</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_usart.o(i.USART_ITConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART_ITConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
+<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 </UL>
 
@@ -1142,7 +1116,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetClocksFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
 </UL>
 
@@ -1151,13 +1125,14 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[bc]"></a>USART_ReceiveData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_ReceiveData))
-<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_IRQHandler
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
 </UL>
 
 <P><STRONG><a name="[c9]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(i.USART_SendData))
-<BR><BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendChar
+<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendChar
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
 </UL>
 
 <P><STRONG><a name="[f]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
@@ -1171,28 +1146,29 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[10f]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[10b]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[f3]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf))
+<P><STRONG><a name="[ef]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
 </UL>
 
-<P><STRONG><a name="[110]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[10c]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[111]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[10d]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
 <P><STRONG><a name="[d0]"></a>__0vsprintf</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[112]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[10e]"></a>__1vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[113]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[10f]"></a>__2vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
-<P><STRONG><a name="[114]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
+<P><STRONG><a name="[110]"></a>__c89vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf), UNUSED)
 
 <P><STRONG><a name="[c5]"></a>vsprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0vsprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vsprintf
@@ -1201,13 +1177,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d1]"></a>__aeabi_assert</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, retarget_io.o(i.__aeabi_assert))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputs
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abort
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBUtilSetBits
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBBIN2CHAR
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBBIN2CHAR
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTransmitFSM
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTimerT35Expired
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUReceiveFSM
@@ -1218,11 +1193,11 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIIReceive
 </UL>
 
-<P><STRONG><a name="[115]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[111]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[116]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[112]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[117]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[113]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[d3]"></a>abort</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, retarget_io.o(i.abort))
 <BR><BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abort
@@ -1232,7 +1207,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d9]"></a>eMBASCIIInit</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, mbascii.o(i.eMBASCIIInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = eMBASCIIInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = eMBASCIIInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortTimersInit
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialInit
@@ -1241,7 +1216,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[75]"></a>eMBASCIIReceive</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, mbascii.o(i.eMBASCIIReceive))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = eMBASCIIReceive &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = eMBASCIIReceive &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBLRC
@@ -1272,29 +1247,29 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
-<P><STRONG><a name="[f1]"></a>eMBEnable</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mb.o(i.eMBEnable))
+<P><STRONG><a name="[f0]"></a>eMBEnable</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, mb.o(i.eMBEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = eMBEnable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6]"></a>eMBFuncReadCoils</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, mbfunccoils.o(i.eMBFuncReadCoils))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = eMBFuncReadCoils &rArr; eMBRegCoilsCB &rArr; xMBUtilSetBits &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<P><STRONG><a name="[6]"></a>eMBFuncReadCoils</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, mbfunccoils.o(i.eMBFuncReadCoils))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = eMBFuncReadCoils
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegCoilsCB
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prveMBError2Exception
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[9]"></a>eMBFuncReadDiscreteInputs</STRONG> (Thumb, 120 bytes, Stack size 16 bytes, mbfuncdisc.o(i.eMBFuncReadDiscreteInputs))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = eMBFuncReadDiscreteInputs &rArr; eMBRegDiscreteCB &rArr; xMBUtilGetBits
+<P><STRONG><a name="[9]"></a>eMBFuncReadDiscreteInputs</STRONG> (Thumb, 114 bytes, Stack size 16 bytes, mbfuncdisc.o(i.eMBFuncReadDiscreteInputs))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = eMBFuncReadDiscreteInputs
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegDiscreteCB
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prveMBError2Exception
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[2]"></a>eMBFuncReadHoldingRegister</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, mbfuncholding.o(i.eMBFuncReadHoldingRegister))
+<P><STRONG><a name="[2]"></a>eMBFuncReadHoldingRegister</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, mbfuncholding.o(i.eMBFuncReadHoldingRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = eMBFuncReadHoldingRegister &rArr; eMBRegHoldingCB
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegHoldingCB
@@ -1302,7 +1277,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[1]"></a>eMBFuncReadInputRegister</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, mbfuncinput.o(i.eMBFuncReadInputRegister))
+<P><STRONG><a name="[1]"></a>eMBFuncReadInputRegister</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, mbfuncinput.o(i.eMBFuncReadInputRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = eMBFuncReadInputRegister &rArr; eMBRegInputCB
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegInputCB
@@ -1325,15 +1300,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[7]"></a>eMBFuncWriteCoil</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, mbfunccoils.o(i.eMBFuncWriteCoil))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = eMBFuncWriteCoil &rArr; eMBRegCoilsCB &rArr; xMBUtilSetBits &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<P><STRONG><a name="[7]"></a>eMBFuncWriteCoil</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, mbfunccoils.o(i.eMBFuncWriteCoil))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = eMBFuncWriteCoil
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegCoilsCB
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prveMBError2Exception
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[4]"></a>eMBFuncWriteHoldingRegister</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, mbfuncholding.o(i.eMBFuncWriteHoldingRegister))
+<P><STRONG><a name="[4]"></a>eMBFuncWriteHoldingRegister</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, mbfuncholding.o(i.eMBFuncWriteHoldingRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = eMBFuncWriteHoldingRegister &rArr; eMBRegHoldingCB
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegHoldingCB
@@ -1341,15 +1316,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[8]"></a>eMBFuncWriteMultipleCoils</STRONG> (Thumb, 102 bytes, Stack size 24 bytes, mbfunccoils.o(i.eMBFuncWriteMultipleCoils))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = eMBFuncWriteMultipleCoils &rArr; eMBRegCoilsCB &rArr; xMBUtilSetBits &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<P><STRONG><a name="[8]"></a>eMBFuncWriteMultipleCoils</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, mbfunccoils.o(i.eMBFuncWriteMultipleCoils))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = eMBFuncWriteMultipleCoils
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegCoilsCB
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prveMBError2Exception
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
-<P><STRONG><a name="[3]"></a>eMBFuncWriteMultipleHoldingRegister</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister))
+<P><STRONG><a name="[3]"></a>eMBFuncWriteMultipleHoldingRegister</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, mbfuncholding.o(i.eMBFuncWriteMultipleHoldingRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = eMBFuncWriteMultipleHoldingRegister &rArr; eMBRegHoldingCB
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegHoldingCB
@@ -1358,7 +1333,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(.data)
 </UL>
 <P><STRONG><a name="[e6]"></a>eMBInit</STRONG> (Thumb, 146 bytes, Stack size 24 bytes, mb.o(i.eMBInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = eMBInit &rArr; eMBRTUInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = eMBInit &rArr; eMBRTUInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortEventInit
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUInit
@@ -1377,7 +1352,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e7]"></a>eMBRTUInit</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, mbrtu.o(i.eMBRTUInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = eMBRTUInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = eMBRTUInit &rArr; xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortTimersInit
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialInit
@@ -1386,7 +1361,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6e]"></a>eMBRTUReceive</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, mbrtu.o(i.eMBRTUReceive))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = eMBRTUReceive &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = eMBRTUReceive &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usMBCRC16
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
@@ -1394,7 +1369,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[6d]"></a>eMBRTUSend</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, mbrtu.o(i.eMBRTUSend))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = eMBRTUSend &rArr; xMBPortSerialPutByte &rArr; USART1_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = eMBRTUSend &rArr; vMBPortSerialEnable &rArr; USART_ITConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;usMBCRC16
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
@@ -1418,23 +1393,14 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
-<P><STRONG><a name="[e0]"></a>eMBRegCoilsCB</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, mb_user.o(i.eMBRegCoilsCB))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = eMBRegCoilsCB &rArr; xMBUtilSetBits &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBUtilSetBits
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBUtilGetBits
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncWriteMultipleCoils
+<P><STRONG><a name="[e0]"></a>eMBRegCoilsCB</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, mb_user.o(i.eMBRegCoilsCB))
+<BR><BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncWriteMultipleCoils
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncWriteCoil
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadCoils
 </UL>
 
-<P><STRONG><a name="[e2]"></a>eMBRegDiscreteCB</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, mb_user.o(i.eMBRegDiscreteCB))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = eMBRegDiscreteCB &rArr; xMBUtilGetBits
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBUtilGetBits
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadDiscreteInputs
+<P><STRONG><a name="[e2]"></a>eMBRegDiscreteCB</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, mb_user.o(i.eMBRegDiscreteCB))
+<BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadDiscreteInputs
 </UL>
 
 <P><STRONG><a name="[e3]"></a>eMBRegHoldingCB</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, mb_user.o(i.eMBRegHoldingCB))
@@ -1452,17 +1418,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadInputRegister
 </UL>
 
-<P><STRONG><a name="[69]"></a>fputc</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, uart_5.o(i.fputc))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = fputc &rArr; UART5_SendChar
+<P><STRONG><a name="[69]"></a>fputc</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, usart_1.o(i.fputc))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendChar
+<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
+<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputs
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
 <P><STRONG><a name="[d2]"></a>fputs</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, fputs.o(i.fputs))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
@@ -1475,16 +1442,16 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBPoll
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBInit
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBEnable
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBEnable
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_Init
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendString
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP280_Init
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BH1750_Init
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sgp30_data_show_init
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC1_Init
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_SendString
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Init
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1500,13 +1467,13 @@ Global Symbols
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBFuncReadCoils
 </UL>
 
-<P><STRONG><a name="[f0]"></a>sgp30_data_show_init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, sgp30.o(i.sgp30_data_show_init))
+<P><STRONG><a name="[ee]"></a>sgp30_data_show_init</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, sgp30.o(i.sgp30_data_show_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = sgp30_data_show_init &rArr; UART5_Printf &rArr; UART5_SendString &rArr; UART5_SendChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGP30_SetHumidity
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGP30_Init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_Printf
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1518,7 +1485,7 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUReceive
 </UL>
 
-<P><STRONG><a name="[dd]"></a>vMBPortSerialEnable</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, portserial.o(i.vMBPortSerialEnable))
+<P><STRONG><a name="[dd]"></a>vMBPortSerialEnable</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, portserial.o(i.vMBPortSerialEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vMBPortSerialEnable &rArr; USART_ITConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
@@ -1549,8 +1516,8 @@ Global Symbols
 <P><STRONG><a name="[ed]"></a>vMBPortTimersEnable</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, porttimer.o(i.vMBPortTimersEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vMBPortTimersEnable
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetAutoreload
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCounter
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetAutoreload
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Cmd
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ClearITPendingBit
 </UL>
@@ -1564,19 +1531,19 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[76]"></a>xMBASCIIReceiveFSM</STRONG> (Thumb, 206 bytes, Stack size 24 bytes, mbascii.o(i.xMBASCIIReceiveFSM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = xMBASCIIReceiveFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBASCIIReceiveFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBCHAR2BIN
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBCHAR2BIN
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortEventPost
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[78]"></a>xMBASCIITimerT1SExpired</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, mbascii.o(i.xMBASCIITimerT1SExpired))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = xMBASCIITimerT1SExpired &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = xMBASCIITimerT1SExpired &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
@@ -1584,12 +1551,12 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[77]"></a>xMBASCIITransmitFSM</STRONG> (Thumb, 180 bytes, Stack size 16 bytes, mbascii.o(i.xMBASCIITransmitFSM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = xMBASCIITransmitFSM &rArr; prvucMBBIN2CHAR &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBASCIITransmitFSM &rArr; prvucMBBIN2CHAR &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBBIN2CHAR
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvucMBBIN2CHAR
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortEventPost
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
@@ -1611,29 +1578,28 @@ Global Symbols
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIIStart
 </UL>
 
-<P><STRONG><a name="[f6]"></a>xMBPortSerialGetByte</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, portserial.o(i.xMBPortSerialGetByte))
+<P><STRONG><a name="[f4]"></a>xMBPortSerialGetByte</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, portserial.o(i.xMBPortSerialGetByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = xMBPortSerialGetByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_ReadByte
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Available
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUReceiveFSM
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBASCIIReceiveFSM
 </UL>
 
 <P><STRONG><a name="[da]"></a>xMBPortSerialInit</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, portserial.o(i.xMBPortSerialInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = xMBPortSerialInit &rArr; USART1_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUInit
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIIInit
 </UL>
 
-<P><STRONG><a name="[ec]"></a>xMBPortSerialPutByte</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, portserial.o(i.xMBPortSerialPutByte))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xMBPortSerialPutByte &rArr; USART1_SendChar
+<P><STRONG><a name="[ec]"></a>xMBPortSerialPutByte</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, portserial.o(i.xMBPortSerialPutByte))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = xMBPortSerialPutByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_SendChar
+<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBRTUTransmitFSM
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBASCIITransmitFSM
@@ -1644,23 +1610,23 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = xMBPortTimersInit &rArr; NVIC_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRTUInit
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIIInit
 </UL>
 
 <P><STRONG><a name="[6f]"></a>xMBRTUReceiveFSM</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, mbrtu.o(i.xMBRTUReceiveFSM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBRTUReceiveFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = xMBRTUReceiveFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialGetByte
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersEnable
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[71]"></a>xMBRTUTimerT35Expired</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, mbrtu.o(i.xMBRTUTimerT35Expired))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBRTUTimerT35Expired &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = xMBRTUTimerT35Expired &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortTimersDisable
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
@@ -1669,7 +1635,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
 <P><STRONG><a name="[70]"></a>xMBRTUTransmitFSM</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, mbrtu.o(i.xMBRTUTransmitFSM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBRTUTransmitFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = xMBRTUTransmitFSM &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBPortSerialPutByte
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMBPortSerialEnable
@@ -1678,25 +1644,10 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> mb.o(i.eMBInit)
 </UL>
-<P><STRONG><a name="[ee]"></a>xMBUtilGetBits</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, mbutils.o(i.xMBUtilGetBits))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = xMBUtilGetBits
-</UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegDiscreteCB
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegCoilsCB
-</UL>
-
-<P><STRONG><a name="[ef]"></a>xMBUtilSetBits</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, mbutils.o(i.xMBUtilSetBits))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = xMBUtilSetBits &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
-</UL>
-<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
-</UL>
-<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBRegCoilsCB
-</UL>
-
 <P><STRONG><a name="[b7]"></a>xTaskIncrementTick</STRONG> (Thumb, 300 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -1727,25 +1678,33 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SGP30_Init
 </UL>
 
-<P><STRONG><a name="[fb]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
+<P><STRONG><a name="[f7]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
 <BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
-<P><STRONG><a name="[f2]"></a>prvucMBBIN2CHAR</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, mbascii.o(i.prvucMBBIN2CHAR))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = prvucMBBIN2CHAR &rArr; __aeabi_assert &rArr; fputs &rArr; fputc &rArr; UART5_SendChar
+<P><STRONG><a name="[f1]"></a>prvucMBBIN2CHAR</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, mbascii.o(i.prvucMBBIN2CHAR))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = prvucMBBIN2CHAR &rArr; __aeabi_assert &rArr; fputs &rArr; fputc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_assert
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBASCIITransmitFSM
 </UL>
 
-<P><STRONG><a name="[f7]"></a>prvucMBCHAR2BIN</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, mbascii.o(i.prvucMBCHAR2BIN))
+<P><STRONG><a name="[f5]"></a>prvucMBCHAR2BIN</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, mbascii.o(i.prvucMBCHAR2BIN))
 <BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xMBASCIIReceiveFSM
 </UL>
 
 <P><STRONG><a name="[dc]"></a>prvucMBLRC</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, mbascii.o(i.prvucMBLRC))
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIISend
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eMBASCIIReceive
+</UL>
+
+<P><STRONG><a name="[ca]"></a>prvvUARTRxISR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, portserial.o(i.prvvUARTRxISR))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
+</UL>
+
+<P><STRONG><a name="[cb]"></a>prvvUARTTxReadyISR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, portserial.o(i.prvvUARTTxReadyISR))
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[d4]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)

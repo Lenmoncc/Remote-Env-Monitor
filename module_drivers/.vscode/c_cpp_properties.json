@@ -9,7 +9,10 @@
                 "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\CMSIS",
                 "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\Drivers",
                 "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\Hardware",
-                "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\SGP30"
+                "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\FreeRTOS_CORE",
+                "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\FreeRTOS_PORT",
+                "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\Modbus_CORE",
+                "e:\\正点原子阿尔法\\STM32F407\\module_drivers\\Modbus_PORT"
             ],
             "defines": [
                 "STM32F40_41xxx",

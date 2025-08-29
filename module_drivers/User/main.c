@@ -11,6 +11,7 @@
 #include "task.h"  
 #include "mb.h"
 #include "mbport.h"
+#include "mb_user.h"
 
 
 #define SENSOR_TASK_PRIORITY 1
@@ -60,8 +61,8 @@ int main(void) {
     //vTaskStartScheduler();
     
     // 如果调度器启动成功，不会执行到这里
-	USART1_SendString("Hello World!\r\n");
-	
+	//USART1_SendString("Hello World!\r\n");
+	printf("Hello World!\r\n");
     eMBInit(MB_RTU, 1, 1, 115200, MB_PAR_NONE);
 
     // 启动协议栈
