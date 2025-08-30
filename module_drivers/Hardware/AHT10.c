@@ -102,15 +102,15 @@ uint8_t aht10_get_data(AHT10_Data* data)
     uint32_t hum_raw = ((uint32_t)raw_data[1] << 12) | 
                        ((uint32_t)raw_data[2] << 4) | 
                        ((uint32_t)raw_data[3] >> 4);
-    data->humidity = (hum_raw / 1048576.0f) * 100.0f;
-    UART5_Printf("humidity: %.2f%%\r\n", data->humidity);
+    data->humidity = (int)((hum_raw / 1048576.0f) * 100.0f);
+    //printf("humidity: %d\r\n", (int)data->humidity);
     
     // 计算温度（20位数据）
     uint32_t temp_raw = ((((uint32_t)raw_data[3]) & 0x0F) << 16) |  
                     ((uint32_t)raw_data[4] << 8) | 
                     ((uint32_t)raw_data[5]);
-    data->temperature = (temp_raw / 1048576.0f) * 200.0f - 50.0f;
-    UART5_Printf("temperature: %.2fC\r\n", data->temperature);
+    data->temperature = (int)((temp_raw / 1048576.0f) * 200.0f - 50.0f);
+    //printf("temperature: %d\r\n", (int)data->temperature);
     
     return 0; // 成功
 

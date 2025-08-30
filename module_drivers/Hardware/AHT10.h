@@ -9,6 +9,7 @@
 #include "UART_5.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "USART_1.h"
 
 #define AHT10_ADDRESS 0x38
 #define AHT10_CMD_INIT 0XE1
@@ -22,8 +23,8 @@
 #define AHT10_CMD_SOFTRESET 0XBA
 
 typedef struct {
-    float humidity;    
-    float temperature; 
+    int humidity;    
+    int temperature; 
 }AHT10_Data;
 
 extern AHT10_Data data;

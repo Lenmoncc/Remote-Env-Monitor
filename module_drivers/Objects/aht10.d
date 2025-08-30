@@ -50,3 +50,10 @@
 .\objects\aht10.o: .\FreeRTOS_CORE\mpu_wrappers.h
 .\objects\aht10.o: .\FreeRTOS_CORE\task.h
 .\objects\aht10.o: .\FreeRTOS_CORE\list.h
+.\objects\aht10.o: Hardware\USART_1.h
+.\objects\aht10.o: .\Modbus_PORT\port.h
+.\objects\aht10.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\aht10.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\aht10.o: .\Modbus_CORE\mbport.h
+.\objects\aht10.o: .\Modbus_CORE\mb.h
+.\objects\aht10.o: .\Modbus_CORE\mbproto.h

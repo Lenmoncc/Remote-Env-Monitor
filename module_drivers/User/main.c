@@ -69,6 +69,22 @@ int main(void) {
     eMBEnable();
     while(1)
 	{
+
+ 		// --------- 采集传感器数据 ---------
+         aht10_get_data(&data);                // AHT10 温湿度
+         lux = BH1750_ReadLight();            // 光照
+         bmp280_data = BMP280_GetData();             // 温度+气压
+         SGP30_MeasureIAQ(&g_co2eq, &g_tvoc);        // CO₂ + TVOC
+
+//	 printf("AHT10 Temp: %d, Hum: %d | Lux: %d | BMP Temp: %d, Press: %d | CO2: %d, TVOC: %d\r\n",
+//        data.temperature, data.humidity,
+//        lux,
+//        bmp280_data.temp, bmp280_data.press,
+//        g_co2eq, g_tvoc);			
+
+		
 		eMBPoll();
+
+        //Delay_ms(1000);
 	}
 }

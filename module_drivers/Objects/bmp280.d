@@ -51,3 +51,10 @@
 .\objects\bmp280.o: .\FreeRTOS_CORE\mpu_wrappers.h
 .\objects\bmp280.o: .\FreeRTOS_CORE\task.h
 .\objects\bmp280.o: .\FreeRTOS_CORE\list.h
+.\objects\bmp280.o: Hardware\USART_1.h
+.\objects\bmp280.o: .\Modbus_PORT\port.h
+.\objects\bmp280.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\bmp280.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\bmp280.o: .\Modbus_CORE\mbport.h
+.\objects\bmp280.o: .\Modbus_CORE\mb.h
+.\objects\bmp280.o: .\Modbus_CORE\mbproto.h

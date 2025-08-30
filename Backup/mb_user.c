@@ -1,8 +1,4 @@
 #include "mb_user.h"
-#include "AHT10.h"
-#include "BH1750.h"
-#include "BMP280.h"
-#include "sgp30.h"
 
 /* --------- 模拟寄存器区域 --------- */
 //输入寄存器起始地址
@@ -97,67 +93,41 @@ eMBRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
 eMBErrorCode
 eMBRegHoldingCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs, eMBRegisterMode eMode )
 {
-    eMBErrorCode eStatus = MB_ENOERR;
+	eMBErrorCode    eStatus = MB_ENOERR;
+	int             iRegIndex;
 
-    // Modbus 协议要求寄存器地址是 1-based，这里通常要减 1
-    //usAddress--;  
 
-    // 合法区间检查：0x0000 ~ 0x0006 共 7 个寄存器
-    if ((usAddress >= 0x0000) && (usAddress + usNRegs <= 0x0007))
-    {
-        if (eMode == MB_REG_READ)
-        {
-            while (usNRegs > 0)
-            {
-                int value = 0;
-
-                switch (usAddress)
-                {
-                    case 0x0000: // AHT10 温度
-                        value = data.temperature;
-                        break;
-                    case 0x0001: // AHT10 湿度
-                        value = data.humidity;
-                        break;
-                    case 0x0002: // BH1750 光照
-                        value = lux;
-                        break;
-                    case 0x0003: // BMP280 温度
-                        value = bmp280_data.temp;
-                        break;
-                    case 0x0004: // BMP280 气压 (hPa)
-                        value = bmp280_data.press;
-                        break;
-                    case 0x0005: // SGP30 CO?
-                        value = g_co2eq;
-                        break;
-                    case 0x0006: // SGP30 TVOC
-                        value = g_tvoc;
-                        break;
-                    default:
-                        value = 0; // 这里不会进来，因为前面做了区间检查
-                        break;
-                }
-
-                *pucRegBuffer++ = (UCHAR)(value >> 8);
-                *pucRegBuffer++ = (UCHAR)(value & 0xFF);
-
-                usAddress++;
-                usNRegs--;
-            }
-        }
-        else if (eMode == MB_REG_WRITE)
-        {
-            // 如果需要写保持寄存器，在这里处理
-            eStatus = MB_ENOREG;
-        }
-    }
-    else
-    {
-        eStatus = MB_ENOREG; // 地址不在合法区间
-    }
-
-    return eStatus;
+	if((usAddress >= REG_HOLDING_START)&&\
+		((usAddress+usNRegs) <= (REG_HOLDING_START + REG_HOLDING_NREGS)))
+	{
+		iRegIndex = (int)(usAddress - usRegHoldingStart);
+		switch(eMode)
+		{                                       
+			case MB_REG_READ://读 MB_REG_READ = 0
+        while(usNRegs > 0)
+				{
+					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] >> 8);            
+					*pucRegBuffer++ = (u8)(usRegHoldingBuf[iRegIndex] & 0xFF); 
+          iRegIndex++;
+          usNRegs--;					
+				}                            
+        break;
+			case MB_REG_WRITE://写 MB_REG_WRITE = 0
+				while(usNRegs > 0)
+				{         
+					usRegHoldingBuf[iRegIndex] = *pucRegBuffer++ << 8;
+          usRegHoldingBuf[iRegIndex] |= *pucRegBuffer++;
+          iRegIndex++;
+          usNRegs--;
+        }				
+			}
+	}
+	else//错误
+	{
+		eStatus = MB_ENOREG;
+	}	
+	
+	return eStatus;
 }
 
 /****************************************************************************

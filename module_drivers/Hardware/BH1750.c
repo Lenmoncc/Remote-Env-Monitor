@@ -1,4 +1,7 @@
 #include "BH1750.h"
+#include "USART_1.h"
+
+int lux = 0.0f;
 
 void BH1750_Init(void) {
     //IIC1_Init();               
@@ -20,9 +23,6 @@ void BH1750_SendCmd(uint8_t cmd) {
 float BH1750_ReadLight(void) {
     uint8_t data_high, data_low;
     uint16_t raw_data;
-    float lux;
-
-
     BH1750_SendCmd(CONT_H_RES);
     Delay_ms(120);  
 	//vTaskDelay(pdMS_TO_TICKS(120));
@@ -39,8 +39,8 @@ float BH1750_ReadLight(void) {
 
 
     raw_data = (data_high << 8) | data_low;  
-    lux = raw_data / 1.2f;                   
-	UART5_Printf("Light: %.1f lx\r\n", lux);
+    lux = (int)(raw_data / 1.2f);                   
+	//printf("Light: %d lx\r\n", (int)lux);
     return lux;
 }
 

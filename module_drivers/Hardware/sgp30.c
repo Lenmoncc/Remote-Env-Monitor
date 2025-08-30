@@ -1,8 +1,8 @@
 #include "sgp30.h"
 #include "Delay.h"
 
-uint16_t g_co2eq = 0;
-uint16_t g_tvoc = 0;
+int g_co2eq = 0;
+int g_tvoc = 0;
 uint8_t g_init_flag = 0;
 
 
@@ -31,7 +31,7 @@ void sgp30_data_show(void)
                 HandleInitPhaseData(g_co2eq, g_tvoc);
             } else {
                 // 打印有效数据（CO2eq范围400~60000ppm，TVOC范围0~60000ppb）
-                UART5_Printf("CO2eq: %d ppm, TVOC: %d ppb\r\n", g_co2eq, g_tvoc);
+                UART5_Printf("CO2eq: %d ppm, TVOC: %d ppb\r\n", (int)g_co2eq, (int)g_tvoc);
             }
         } else {
             UART5_Printf("Data read failed\r\n");
@@ -114,13 +114,13 @@ uint8_t SGP30_Init(void) {
  * @param tvoc：输出总挥发性有机物浓度（ppb）
  * @return 0-成功，1-失败（CRC校验错误）
  */
-uint8_t SGP30_MeasureIAQ(uint16_t *co2eq, uint16_t *tvoc) {
+uint8_t SGP30_MeasureIAQ(int *co2eq, int *tvoc) {
     uint8_t data[6]; // 接收数据：CO2(2字节)+CRC(1)+TVOC(2字节)+CRC(1)
     
     // 发送测量命令，等待最大12ms
     if (SGP30_SendCmd(SGP30_CMD_MEASURE_IAQ) != 0) return 1;
-    //Delay_ms(12);
-	vTaskDelay(pdMS_TO_TICKS(12));
+    Delay_ms(12);
+	//vTaskDelay(pdMS_TO_TICKS(12));
     
     // 读取6字节数据
     MyIIC1_Start();
@@ -150,8 +150,8 @@ uint8_t SGP30_MeasureIAQ(uint16_t *co2eq, uint16_t *tvoc) {
     if (SGP30_CRC8(&data[3]) != data[5]) return 1; // TVOC CRC错误
     
     // 解析数据（MSB在前）
-    *co2eq = (data[0] << 8) | data[1];
-    *tvoc = (data[3] << 8) | data[4];
+    *co2eq = (int)((data[0] << 8) | data[1]);
+    *tvoc = (int)((data[3] << 8) | data[4]);
     return 0;
 }
 

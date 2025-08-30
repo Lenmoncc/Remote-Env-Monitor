@@ -6,23 +6,27 @@
 #include "UART_5.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "USART_1.h"
 
+extern int g_co2eq;
+extern int g_tvoc;
+extern uint8_t g_init_flag;
 
 #define SGP30_ADDR_W 0xB0  
 #define SGP30_ADDR_R 0xB1
 
-// ÃüÁî¶¨Òå£¨16Î»£¬MSBÔÚÇ°£©
-#define SGP30_CMD_INIT       0x2003  // ³õÊ¼»¯¿ÕÆøÖÊÁ¿²âÁ¿
-#define SGP30_CMD_MEASURE_IAQ 0x2008 // ²âÁ¿TVOCºÍCO2eq
-#define SGP30_CMD_GET_BASELINE 0x2015 // ¶ÁÈ¡»ùÏßÖµ
-#define SGP30_CMD_SET_HUMIDITY 0x2061 // ÉèÖÃ¾ø¶ÔÊª¶È²¹³¥
+// ï¿½ï¿½ï¿½î¶¨ï¿½å£¨16Î»ï¿½ï¿½MSBï¿½ï¿½Ç°ï¿½ï¿½
+#define SGP30_CMD_INIT       0x2003  // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SGP30_CMD_MEASURE_IAQ 0x2008 // ï¿½ï¿½ï¿½ï¿½TVOCï¿½ï¿½CO2eq
+#define SGP30_CMD_GET_BASELINE 0x2015 // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
+#define SGP30_CMD_SET_HUMIDITY 0x2061 // ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½Êªï¿½È²ï¿½ï¿½ï¿½
 
 void sgp30_data_show_init(void);
 void sgp30_data_show(void);
 void HandleInitPhaseData(uint16_t co2, uint16_t tvoc);
 uint8_t SGP30_Init(void);
-uint8_t SGP30_MeasureIAQ(uint16_t *co2eq, uint16_t *tvoc);
-uint8_t SGP30_SetHumidity(uint32_t abs_humidity); // ¾ø¶ÔÊª¶È£¨g/m3£¬¹Ì¶¨µã¸ñÊ½£©
+uint8_t SGP30_MeasureIAQ(int *co2eq, int *tvoc);
+uint8_t SGP30_SetHumidity(uint32_t abs_humidity); // ï¿½ï¿½ï¿½ï¿½Êªï¿½È£ï¿½g/m3ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
 
 
 #endif

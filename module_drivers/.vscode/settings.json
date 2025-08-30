@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "delay.h": "c",
-        "usart_1.h": "c"
-    }
+        "usart_1.h": "c",
+        "bh1750.h": "c"
+    },
+    "idf.pythonInstallPath": "E:\\esp32\\.espressif\\tools\\idf-python\\3.11.2\\python.exe"
 }

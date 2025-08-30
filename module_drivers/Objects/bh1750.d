@@ -50,3 +50,10 @@
 .\objects\bh1750.o: .\FreeRTOS_CORE\mpu_wrappers.h
 .\objects\bh1750.o: .\FreeRTOS_CORE\task.h
 .\objects\bh1750.o: .\FreeRTOS_CORE\list.h
+.\objects\bh1750.o: Hardware\USART_1.h
+.\objects\bh1750.o: .\Modbus_PORT\port.h
+.\objects\bh1750.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\bh1750.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\bh1750.o: .\Modbus_CORE\mbport.h
+.\objects\bh1750.o: .\Modbus_CORE\mb.h
+.\objects\bh1750.o: .\Modbus_CORE\mbproto.h

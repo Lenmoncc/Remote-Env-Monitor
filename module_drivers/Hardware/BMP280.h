@@ -8,6 +8,7 @@
 #include "UART_5.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "USART_1.h"
 
 
 // BMP280寄存器地址定义
@@ -44,9 +45,12 @@ typedef struct {
 
 // 测量数据结构体（补偿后）
 typedef struct {
-    float temp;  // 温度（℃）
-    float press; // 压力（hPa）
+    int temp;  // 温度（℃）
+    int press; // 压力（hPa）
+    int altitude;
 } BMP280_DataTypedef;
+
+extern BMP280_DataTypedef bmp280_data;
 
 // 配置参数结构体
 typedef struct {

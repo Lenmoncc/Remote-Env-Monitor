@@ -49,4 +49,11 @@
 .\objects\sgp30.o: .\FreeRTOS_CORE\mpu_wrappers.h
 .\objects\sgp30.o: .\FreeRTOS_CORE\task.h
 .\objects\sgp30.o: .\FreeRTOS_CORE\list.h
+.\objects\sgp30.o: Hardware\USART_1.h
 .\objects\sgp30.o: .\System\Delay.h
+.\objects\sgp30.o: .\Modbus_PORT\port.h
+.\objects\sgp30.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\sgp30.o: D:\QQ\vsCODE\keil5\keil5\ARM\ARMCC\Bin\..\include\inttypes.h
+.\objects\sgp30.o: .\Modbus_CORE\mbport.h
+.\objects\sgp30.o: .\Modbus_CORE\mb.h
+.\objects\sgp30.o: .\Modbus_CORE\mbproto.h

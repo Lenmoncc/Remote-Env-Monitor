@@ -1,6 +1,6 @@
 #include "BMP280.h"
 
-
+BMP280_DataTypedef bmp280_data = {0,0,0};
 BMP280_CalibTypeDef bmp280_calib;
 int32_t t_fine;  
 
@@ -186,11 +186,9 @@ float BMP280_CompensatePress(int32_t raw_press) {
  */
 BMP280_DataTypedef BMP280_GetData(void) {
     const float stdlevel_pressure = 1013.25f;
-    float altitude = 0.0f; 
     float ratio = 0.0f;
     BMP280_RawDataTypedef raw;
     uint8_t data[6];
-    BMP280_DataTypedef res = {0,0};
     
     // 等待传感器完成测量（状态寄存器bit3为0时空闲）
     while ((BMP280_ReadReg(BMP280_REG_STATUS) & 0x08) != 0);
@@ -205,17 +203,17 @@ BMP280_DataTypedef BMP280_GetData(void) {
     raw.temp = (data[0] << 12) | (data[1] << 4) | (data[2] >> 4);
     
     // 补偿计算
-    res.temp = BMP280_CompensateTemp(raw.temp);
+    bmp280_data.temp = (int)BMP280_CompensateTemp(raw.temp);
     //res.press = BMP280_CompensatePress(raw.press);
     float press_pa = BMP280_CompensatePress(raw.press);
-    res.press = press_pa / 100.0f;  // Pa转换为hPa
+    bmp280_data.press = (int)(press_pa / 100.0f);  // Pa转换为hPa
     
     // 计算海拔高度（单位：米）
-    ratio = stdlevel_pressure / res.press;  
-    altitude = (powf(ratio, 0.190295f) - 1.0f) * 44330.77f;  
+    ratio = stdlevel_pressure / (bmp280_data.press*1.0f);  
+    bmp280_data.altitude = (int)((powf(ratio, 0.190295f) - 1.0f) * 44330.77f);  
     
-    UART5_Printf("Temp=%.2fC, Press=%.2fhPa\r\n", res.temp, res.press);
-    UART5_Printf("Altitude=%.2fm\r\n", altitude);
+    //printf("Temp=%dC, Press=%dhPa\r\n", (int)bmp280_data.temp, (int)bmp280_data.press);
+    //printf("Altitude=%dm\r\n", (int)bmp280_data.altitude);
     
-    return res;
+    return bmp280_data;
 }
