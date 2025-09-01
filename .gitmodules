@@ -1,6 +1,3 @@
-[submodule "Remote-Env-Monitor"]
-	path = Remote-Env-Monitor
-	url = https://github.com/Lenmoncc/LVGL
 [submodule "LVGL"]
 	path = LVGL
 	url = https://github.com/Lenmoncc/LVGL
