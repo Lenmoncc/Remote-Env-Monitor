@@ -5,6 +5,7 @@
 - **LVGL**：UI界面工程（VS Code + Gui Guider）
 - **Master**：在主机端使用libmodbus测试通信
 - **module_drivers**：各种传感器的驱动和移植库（keil工程）
+- **module_tool**：Modbus crc计算工具
 - **TEST**：keil工程模板，可使用ws2812快速测试
 ## 开发环境
 - Keil MDK
