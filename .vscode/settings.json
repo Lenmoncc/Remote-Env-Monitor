@@ -1,4 +1,4 @@
 {
     "idf.pythonInstallPath": "E:\\esp32\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
-    "claudeCodeChat.permissions.yoloMode": false
+    "claudeCodeChat.permissions.yoloMode": true
 }
