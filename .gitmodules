@@ -1,5 +1,5 @@
 [submodule "LVGL"]
-	path = LVGL
+	path = Env-UI
 	url = https://github.com/Lenmoncc/Env-UI.git
 [submodule "Linux_driver"]
 	path = Linux_driver
