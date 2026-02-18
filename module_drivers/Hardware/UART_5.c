@@ -6,18 +6,18 @@ void UART5_Init()
 {
 	//SystemClock_Init();
 	
-	//ʹ������ʱ��
+	//??????????
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_UART5, ENABLE);
     RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC | RCC_AHB1Periph_GPIOD, ENABLE);
 	
 	    
-	//���Ÿ���ӳ��
+	//??????????
     GPIO_PinAFConfig(GPIOC, GPIO_PinSource12, GPIO_AF_UART5);
     GPIO_PinAFConfig(GPIOD, GPIO_PinSource2, GPIO_AF_UART5);
 	
 	GPIO_InitTypeDef GPIO_InitStructure;
 	    
-	//����UART5 TX (PC12) ����
+	//????UART5 TX (PC12) ????
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
@@ -25,7 +25,7 @@ void UART5_Init()
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	//����UART5 RX (PD2) ����
+	//????UART5 RX (PD2) ????
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_Init(GPIOD, &GPIO_InitStructure);
@@ -34,7 +34,7 @@ void UART5_Init()
 	
 	USART_InitTypeDef USART_InitStructure;
 	
-	//����UART5����
+	//????UART5????
     USART_InitStructure.USART_BaudRate = 115200;
     USART_InitStructure.USART_WordLength = USART_WordLength_8b;
     USART_InitStructure.USART_StopBits = USART_StopBits_1;
@@ -59,7 +59,7 @@ void UART5_Init()
 
 void UART5_SendChar(char c) {
     
-    while(USART_GetFlagStatus(UART5, USART_FLAG_TXE) == RESET); // �ȴ��������ݼĴ���Ϊ��
+    while(USART_GetFlagStatus(UART5, USART_FLAG_TXE) == RESET); // ??????????????????
     USART_SendData(UART5, c);
 }
 
@@ -71,7 +71,7 @@ void UART5_SendString(char *str) {
 
 char UART5_ReceiveChar(void) {
     
-    while(USART_GetFlagStatus(UART5, USART_FLAG_RXNE) == RESET); // �ȴ����յ�����
+    while(USART_GetFlagStatus(UART5, USART_FLAG_RXNE) == RESET); // ????????????
     return USART_ReceiveData(UART5);
 }
 
@@ -80,11 +80,11 @@ volatile uint8_t uart5_rx_flag = 0;
 
 void UART5_IRQHandler(void) {
     if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET) {
-        uart5_rx_buf = USART_ReceiveData(UART5); // ��������
-        uart5_rx_flag = 1; // ��λ��־
+        uart5_rx_buf = USART_ReceiveData(UART5); // ????????
+        uart5_rx_flag = 1; // ??��???
         //char received = USART_ReceiveData(UART5);
-        //UART5_SendChar(received);// ���Խ��յ����ַ�
-        USART_ClearITPendingBit(UART5, USART_IT_RXNE);// ����жϱ�־
+        //UART5_SendChar(received);// ?????????????
+        USART_ClearITPendingBit(UART5, USART_IT_RXNE);// ????��???
     }
 }
 

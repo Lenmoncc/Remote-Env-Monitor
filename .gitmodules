@@ -1,6 +1,6 @@
 [submodule "LVGL"]
 	path = LVGL
-	url = https://github.com/Lenmoncc/LVGL
+	url = https://github.com/Lenmoncc/Env-UI.git
 [submodule "Linux_driver"]
 	path = Linux_driver
 	url = https://github.com/Lenmoncc/Linux_driver.git
